@@ -17,7 +17,7 @@ export async function getSeedData(): Promise<{
   attendance: AttendanceRecord[];
   supervisorAttendance: SupervisorAttendanceRecord[];
 }> {
-  const adminPasswordHash = await bcrypt.hash('admin123', SALT);
+  const adminPasswordHash = await bcrypt.hash('Afnan@Cubiq.com', SALT);
   const supervisorPasswordHash = await bcrypt.hash('sup12345', SALT);
 
   const today = new Date().toISOString().split('T')[0];
@@ -25,7 +25,7 @@ export async function getSeedData(): Promise<{
   const users: User[] = [
     {
       user_id: 'USR-ADMIN-1',
-      name: 'System Administrator',
+      name: 'Md Afnan',
       role: 'ADMIN',
       username: 'admin',
       password_hash: adminPasswordHash,

@@ -2,10 +2,10 @@
   "users": [
     {
       "user_id": "USR-ADMIN-1",
-      "name": "System Administrator",
+      "name": "Md Afnan",
       "role": "ADMIN",
       "username": "admin",
-      "password_hash": "$2a$10$6Co3jPB2fSX/2rkNjfs1nOaCikjbEy1zFq1vKF4cKhd8v1prDHjla",
+      "password_hash": "$2a$10$kFvaEb6XyabGZUzw9.z4I.dftBsEW7Uktk7Nyc15UrZpmMSZ.3ldO",
       "status": "ACTIVE",
       "created_at": "2026-09-23T18:25:14.732Z"
     },

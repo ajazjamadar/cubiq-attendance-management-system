@@ -78,7 +78,20 @@ function saveData(data: DatabaseSchema) {
 export async function fileFindUserByUsername(username: string): Promise<User | null> {
   const db = await loadData();
   const normalized = username.trim().toLowerCase();
-  return db.users.find((u) => u.username.toLowerCase() === normalized) || null;
+  return (
+    db.users.find((u) => {
+      const uName = u.username.toLowerCase();
+      const fullName = u.name.toLowerCase();
+      if (uName === normalized || fullName === normalized) return true;
+      if (
+        u.role === 'ADMIN' &&
+        ['admin', 'md afnan', 'mdafnan', 'afnan@cubiq.com', 'afnan'].includes(normalized)
+      ) {
+        return true;
+      }
+      return false;
+    }) || null
+  );
 }
 
 export async function fileGetAllUsers(): Promise<User[]> {

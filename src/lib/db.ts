@@ -85,7 +85,16 @@ export async function findUserByUsername(username: string): Promise<User | null>
     await initializeSpreadsheetTabs();
     const rows = await readTabRows(TABS.USERS);
     for (const r of rows) {
-      if ((r[3] || '').trim().toLowerCase() === normalized) {
+      const uName = (r[3] || '').trim().toLowerCase();
+      const fullName = (r[1] || '').trim().toLowerCase();
+      const role = r[2] || '';
+      const isMatch =
+        uName === normalized ||
+        fullName === normalized ||
+        (role === 'ADMIN' &&
+          ['admin', 'md afnan', 'mdafnan', 'afnan@cubiq.com', 'afnan'].includes(normalized));
+
+      if (isMatch) {
         return {
           user_id: r[0] || '',
           name: r[1] || '',

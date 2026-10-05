@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { loginAction } from '@/app/actions/auth';
-import { Boxes, ShieldAlert, UserCheck, Lock, User, ArrowRight, Loader2, Info } from 'lucide-react';
+import { Boxes, ShieldAlert, Lock, User, ArrowRight, Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -34,12 +34,6 @@ export default function LoginPage() {
       setError(err.message || 'An unexpected error occurred.');
       setLoading(false);
     }
-  };
-
-  const fillCredentials = (user: string, pass: string) => {
-    setUsername(user);
-    setPassword(pass);
-    setError(null);
   };
 
   return (
@@ -138,43 +132,6 @@ export default function LoginPage() {
               )}
             </button>
           </form>
-
-          {/* Quick Demo Fill Buttons */}
-          <div className="mt-6 pt-5 border-t border-slate-100">
-            <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-2.5 font-medium">
-              <Info className="w-3.5 h-3.5 text-slate-400" />
-              <span>Quick Login Credentials (Demo Accounts):</span>
-            </div>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => fillCredentials('admin', 'admin123')}
-                className="text-left p-2.5 rounded-lg border border-purple-200 bg-purple-50/50 hover:bg-purple-100 text-purple-900 transition flex flex-col group"
-              >
-                <span className="text-[11px] font-bold text-purple-700 flex items-center gap-1">
-                  <ShieldAlert className="w-3 h-3" />
-                  Admin
-                </span>
-                <span className="text-[10px] text-purple-600 font-mono mt-0.5">
-                  admin / admin123
-                </span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => fillCredentials('supervisor', 'sup12345')}
-                className="text-left p-2.5 rounded-lg border border-teal-200 bg-teal-50/50 hover:bg-teal-100 text-teal-900 transition flex flex-col group"
-              >
-                <span className="text-[11px] font-bold text-teal-700 flex items-center gap-1">
-                  <UserCheck className="w-3 h-3" />
-                  Supervisor (Salman)
-                </span>
-                <span className="text-[10px] text-teal-600 font-mono mt-0.5">
-                  supervisor / sup12345
-                </span>
-              </button>
-            </div>
-          </div>
         </div>
 
         <p className="mt-4 text-center text-xs text-slate-500">

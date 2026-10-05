@@ -58,8 +58,8 @@ Hosting on Vercel with a production SQL database takes under 2 minutes:
 
 3. Open **[http://localhost:3000](http://localhost:3000)**.
 
-### Quick Login Demo Accounts:
-- **Admin**: `admin` / `admin123`
+### Default Admin Credentials:
+- **Admin**: `admin` (or `mdafnan` / `Afnan@Cubiq.com`) / `Afnan@Cubiq.com`
 - **Supervisor (Salman)**: `supervisor` / `sup12345`
 
 ---
