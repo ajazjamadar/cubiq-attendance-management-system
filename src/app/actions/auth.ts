@@ -7,7 +7,7 @@ import { AuthSession } from '@/types';
 
 export async function loginAction(formData: FormData) {
   const username = (formData.get('username') as string)?.trim();
-  const password = formData.get('password') as string;
+  const password = (formData.get('password') as string)?.trim();
 
   if (!username || !password) {
     return { success: false, error: 'Please enter both username and password.' };

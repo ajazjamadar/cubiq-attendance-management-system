@@ -31,15 +31,14 @@ function ensureDataDirectory() {
 }
 
 async function loadData(): Promise<DatabaseSchema> {
-  if (cachedData) return cachedData;
-
   ensureDataDirectory();
 
   if (fs.existsSync(DB_FILE)) {
     try {
       const raw = fs.readFileSync(DB_FILE, 'utf-8');
-      cachedData = JSON.parse(raw);
-      if (cachedData && Array.isArray(cachedData.users) && cachedData.users.length > 0) {
+      const parsed = JSON.parse(raw);
+      if (parsed && Array.isArray(parsed.users) && parsed.users.length > 0) {
+        cachedData = parsed as DatabaseSchema;
         return cachedData;
       }
     } catch (err) {
