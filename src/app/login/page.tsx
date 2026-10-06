@@ -40,11 +40,11 @@ export default function LoginPage() {
     <div className="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-100 via-teal-50/40 to-slate-200">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
-          <div className="bg-white p-3 rounded-2xl shadow-lg border border-slate-200/80 flex items-center justify-center">
+          <div className="bg-white dark:bg-slate-900 p-4 rounded-3xl shadow-xl border border-slate-200/80 dark:border-slate-800 flex items-center justify-center">
             <img
               src="/logo.png"
               alt="CUBIQ Interior & Modular"
-              className="h-20 w-auto object-contain"
+              className="h-20 w-20 object-contain drop-shadow-sm"
             />
           </div>
         </div>

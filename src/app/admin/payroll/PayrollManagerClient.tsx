@@ -501,7 +501,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
               <img
                 src="/logo.png"
                 alt="CUBIQ"
-                className="h-10 w-auto object-contain rounded-lg border border-slate-200 dark:border-slate-700"
+                className="h-10 w-10 object-contain rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-0.5"
               />
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">

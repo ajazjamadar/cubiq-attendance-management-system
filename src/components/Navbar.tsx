@@ -56,7 +56,7 @@ export default function Navbar({ session }: NavbarProps) {
               <img
                 src="/logo.png"
                 alt="CUBIQ Logo"
-                className="h-10 w-auto object-contain rounded-lg border border-slate-200/80 dark:border-slate-700 shadow-2xs group-hover:scale-105 transition"
+                className="h-10 w-10 object-contain rounded-xl border border-slate-200/80 dark:border-slate-700 shadow-2xs group-hover:scale-105 transition bg-white dark:bg-slate-800 p-0.5"
               />
               <div className="flex flex-col">
                 <span className="font-bold text-base tracking-tight text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition flex items-center gap-1.5">
