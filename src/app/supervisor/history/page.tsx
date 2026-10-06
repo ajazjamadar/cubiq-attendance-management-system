@@ -26,10 +26,10 @@ export default async function SupervisorHistoryPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
           Site Attendance History
         </h1>
-        <p className="text-sm text-slate-500 mt-1">
+        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
           Historical log of GPS-verified attendance records for {assignedLocation?.location_name || 'your assigned location'}.
         </p>
       </div>

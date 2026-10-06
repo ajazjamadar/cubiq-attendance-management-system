@@ -81,7 +81,7 @@ export default async function AdminDashboardPage() {
       {/* Metric Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {/* Total Locations */}
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Total Sites
@@ -99,11 +99,11 @@ export default async function AdminDashboardPage() {
               Manage <ArrowUpRight className="w-3 h-3" />
             </Link>
           </div>
-          <p className="mt-1 text-xs text-slate-400">All registered work locations</p>
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">All registered work locations</p>
         </div>
 
         {/* Total Supervisors */}
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Supervisors
@@ -121,11 +121,11 @@ export default async function AdminDashboardPage() {
               Manage <ArrowUpRight className="w-3 h-3" />
             </Link>
           </div>
-          <p className="mt-1 text-xs text-slate-400">Site leaders with login access</p>
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Site leaders with login access</p>
         </div>
 
         {/* Total Employees */}
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Total Employees
@@ -143,11 +143,11 @@ export default async function AdminDashboardPage() {
               View Directory <ArrowUpRight className="w-3 h-3" />
             </Link>
           </div>
-          <p className="mt-1 text-xs text-slate-400">Field staff across all sites</p>
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Field staff across all sites</p>
         </div>
 
         {/* Today's Attendance Count */}
-        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
+        <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs relative overflow-hidden transition-colors">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Today's Present
@@ -164,7 +164,7 @@ export default async function AdminDashboardPage() {
                 : '0%'}
             </span>
           </div>
-          <p className="mt-1 text-xs text-slate-400">Verified via GPS geofencing</p>
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Verified via GPS geofencing</p>
         </div>
       </div>
 
@@ -199,8 +199,8 @@ export default async function AdminDashboardPage() {
       {/* Two Column Section: Recent Employee Attendance & Supervisor Attendance */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main: Recent Employee Attendance */}
-        <div className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
-          <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <div className="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
+          <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div>
               <h2 className="font-bold text-slate-900 dark:text-white text-base">Recent Employee Attendance</h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">Today ({today}) GPS-verified check-ins</p>
@@ -215,12 +215,12 @@ export default async function AdminDashboardPage() {
 
           <div className="overflow-x-auto">
             {todayAttendance.length === 0 ? (
-              <div className="py-12 text-center text-slate-400 text-sm">
+              <div className="py-12 text-center text-slate-400 dark:text-slate-500 text-sm">
                 No employee attendance recorded today yet.
               </div>
             ) : (
               <table className="w-full text-left text-sm">
-                <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-100 dark:border-slate-800">
+                <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-200 dark:border-slate-800">
                   <tr>
                     <th className="px-5 py-3">Employee</th>
                     <th className="px-5 py-3">Check-In</th>
@@ -229,12 +229,12 @@ export default async function AdminDashboardPage() {
                     <th className="px-5 py-3 text-right">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+                <tbody className="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
                   {todayAttendance.map((rec) => (
                     <tr key={rec.attendance_id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
                       <td className="px-5 py-3.5">
                         <div className="font-semibold text-slate-900 dark:text-white">{rec.name}</div>
-                        <div className="text-[11px] text-slate-400 font-mono">
+                        <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
                           {rec.employee_id} {rec.location_name ? `• ${rec.location_name}` : ''}
                         </div>
                       </td>
@@ -244,12 +244,12 @@ export default async function AdminDashboardPage() {
                           {rec.check_in}
                         </div>
                       </td>
-                      <td className="px-5 py-3.5 whitespace-nowrap font-mono text-xs text-slate-500 dark:text-slate-400">
+                      <td className="px-5 py-3.5 whitespace-nowrap font-mono text-xs text-slate-600 dark:text-slate-300">
                         {rec.check_out || '-'}
                       </td>
-                      <td className="px-5 py-3.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
+                      <td className="px-5 py-3.5 text-xs text-slate-600 dark:text-slate-400 font-mono">
                         <div className="flex items-center gap-1">
-                          <Navigation className="w-3 h-3 text-slate-400" />
+                          <Navigation className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                           {rec.latitude.toFixed(4)}, {rec.longitude.toFixed(4)}
                         </div>
                       </td>
@@ -267,8 +267,8 @@ export default async function AdminDashboardPage() {
         </div>
 
         {/* Sidebar: Supervisor Attendance */}
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs overflow-hidden flex flex-col transition-colors">
-          <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs overflow-hidden flex flex-col transition-colors">
+          <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div>
               <h2 className="font-bold text-slate-900 dark:text-white text-base">Supervisor Attendance</h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">On-site attendance records</p>
@@ -280,7 +280,7 @@ export default async function AdminDashboardPage() {
 
           <div className="p-4 flex-1">
             {todaySupervisorAttendance.length === 0 ? (
-              <div className="py-8 text-center text-slate-400 text-xs">
+              <div className="py-8 text-center text-slate-400 dark:text-slate-500 text-xs">
                 No supervisors have marked check-in today.
               </div>
             ) : (
@@ -288,14 +288,14 @@ export default async function AdminDashboardPage() {
                 {todaySupervisorAttendance.map((sup) => (
                   <div
                     key={sup.attendance_id}
-                    className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between text-xs"
+                    className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-300 dark:border-slate-700/60 flex items-center justify-between text-xs"
                   >
                     <div>
                       <span className="font-semibold text-slate-900 dark:text-white block">{sup.name}</span>
                       <span className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
                         {sup.location_name || 'Assigned Site'}
                       </span>
-                      <div className="mt-1 flex items-center gap-2 text-[10px] text-slate-400 font-mono">
+                      <div className="mt-1 flex items-center gap-2 text-[10px] text-slate-500 dark:text-slate-400 font-mono">
                         <span>In: {sup.check_in}</span>
                         <span>Out: {sup.check_out || 'Active'}</span>
                       </div>
@@ -309,7 +309,7 @@ export default async function AdminDashboardPage() {
             )}
           </div>
 
-          <div className="p-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30">
+          <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/30">
             <Link
               href="/admin/supervisors"
               className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center justify-center gap-1"

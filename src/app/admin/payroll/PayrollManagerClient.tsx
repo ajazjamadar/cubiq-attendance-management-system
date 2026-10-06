@@ -181,7 +181,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
   return (
     <div className="space-y-6">
       {/* Month & Parameter Control Bar */}
-      <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors">
+      <div className="bg-white dark:bg-slate-900 p-5 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors">
         <div className="flex flex-wrap items-center gap-4">
           {/* Month Picker */}
           <div className="flex items-center gap-2">
@@ -193,7 +193,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
               type="month"
               value={selectedMonth}
               onChange={(e) => setSelectedMonth(e.target.value)}
-              className="px-3 py-1.5 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="px-3 py-1.5 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
 
@@ -208,7 +208,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
               max={31}
               value={standardWorkingDays}
               onChange={(e) => setStandardWorkingDays(parseInt(e.target.value, 10) || 26)}
-              className="w-16 px-2 py-1.5 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500 text-center"
+              className="w-16 px-2 py-1.5 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500 text-center"
             />
           </div>
 
@@ -221,7 +221,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
               <select
                 value={locationFilter}
                 onChange={(e) => setLocationFilter(e.target.value)}
-                className="px-3 py-1.5 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="px-3 py-1.5 text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
               >
                 <option value="ALL">All Sites ({locations.length})</option>
                 {locations.map((loc) => (
@@ -243,7 +243,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
               placeholder="Search staff, role..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-9 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="pl-9 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
 
@@ -260,7 +260,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
       {/* Metric Cards Summary */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Total Net Payroll */}
-        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Total Payroll
@@ -272,11 +272,11 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
           <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
             ₹{summaryTotals.totalNet.toLocaleString('en-IN')}
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">For {summaryTotals.employeeCount} staff</p>
+          <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">For {summaryTotals.employeeCount} staff</p>
         </div>
 
         {/* Total Hours Worked */}
-        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Total Hours
@@ -288,11 +288,11 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
           <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
             {summaryTotals.totalHours} hrs
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">GPS verified shifts</p>
+          <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">GPS verified shifts</p>
         </div>
 
         {/* Full Days */}
-        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Full Days (≥7h)
@@ -304,11 +304,11 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
           <div className="mt-2 text-2xl font-bold text-emerald-600 dark:text-emerald-400">
             {summaryTotals.totalFullDays}
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">100% pay rate</p>
+          <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">100% pay rate</p>
         </div>
 
         {/* Half Days */}
-        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Half Days (4-7h)
@@ -320,11 +320,11 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
           <div className="mt-2 text-2xl font-bold text-amber-600 dark:text-amber-400">
             {summaryTotals.totalHalfDays}
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">50% pay rate</p>
+          <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">50% pay rate</p>
         </div>
 
         {/* Leaves Taken */}
-        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+        <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
               Leaves Taken
@@ -336,13 +336,13 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
           <div className="mt-2 text-2xl font-bold text-rose-600 dark:text-rose-400">
             {summaryTotals.totalLeaves}
           </div>
-          <p className="mt-1 text-[11px] text-slate-400">Auto-deducted days</p>
+          <p className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">Auto-deducted days</p>
         </div>
       </div>
 
       {/* Salary & Attendance Calculation Table */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
-        <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
+        <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
           <div>
             <h2 className="font-bold text-slate-900 dark:text-white text-base">
               Monthly Employee Salary Calculation
@@ -358,7 +358,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-100 dark:border-slate-800">
+            <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-200 dark:border-slate-800">
               <tr>
                 <th className="px-5 py-3.5">Employee</th>
                 <th className="px-4 py-3.5">Monthly Pay (₹)</th>
@@ -372,10 +372,10 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                 <th className="px-5 py-3.5 text-right">Payslip</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
               {filteredPayrolls.length === 0 ? (
                 <tr>
-                  <td colSpan={10} className="px-6 py-12 text-center text-slate-400 text-sm">
+                  <td colSpan={10} className="px-6 py-12 text-center text-slate-400 dark:text-slate-500 text-sm">
                     No employees matching the selected criteria.
                   </td>
                 </tr>
@@ -388,7 +388,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                     {/* Employee Info */}
                     <td className="px-5 py-4">
                       <div className="font-bold text-slate-900 dark:text-white">{p.name}</div>
-                      <div className="text-[11px] text-slate-400 font-mono">
+                      <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono">
                         {p.employeeId} • <span className="text-teal-600 dark:text-teal-400">{p.designation}</span>
                       </div>
                       <div className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -404,7 +404,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                           type="number"
                           value={p.monthlyPay}
                           onChange={(e) => handleCustomPayChange(p.employeeId, e.target.value)}
-                          className="w-24 px-2 py-1 text-xs font-bold font-mono bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-md text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                          className="w-24 px-2 py-1 text-xs font-bold font-mono bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-md text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
                           title="Click to customize monthly base salary"
                         />
                       </div>
@@ -432,7 +432,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                           {p.halfDays}d
                         </span>
                       ) : (
-                        <span className="text-xs text-slate-400 font-mono">0</span>
+                        <span className="text-xs text-slate-400 dark:text-slate-500 font-mono">0</span>
                       )}
                     </td>
 
@@ -487,7 +487,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
       {/* Payslip Modal */}
       {selectedPayslip && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl relative transition-colors">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-slate-300 dark:border-slate-800 shadow-2xl relative transition-colors">
             {/* Close Button */}
             <button
               onClick={() => setSelectedPayslip(null)}
@@ -497,11 +497,11 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
             </button>
 
             {/* Payslip Header */}
-            <div className="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-5">
+            <div className="flex items-center gap-3 border-b border-slate-200 dark:border-slate-800 pb-5">
               <img
                 src="/logo.png"
                 alt="CUBIQ"
-                className="h-10 w-10 object-contain rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-0.5"
+                className="h-10 w-10 object-contain rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 p-0.5"
               />
               <div>
                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -514,9 +514,9 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
             </div>
 
             {/* Employee Particulars */}
-            <div className="mt-5 grid grid-cols-2 gap-3 text-xs bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+            <div className="mt-5 grid grid-cols-2 gap-3 text-xs bg-slate-50 dark:bg-slate-800/60 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
               <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-semibold">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-semibold">
                   Employee Name
                 </span>
                 <span className="font-bold text-slate-900 dark:text-white">
@@ -524,7 +524,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-semibold">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-semibold">
                   Employee ID
                 </span>
                 <span className="font-bold font-mono text-slate-900 dark:text-white">
@@ -532,7 +532,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-semibold">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-semibold">
                   Designation
                 </span>
                 <span className="font-semibold text-slate-800 dark:text-slate-200">
@@ -540,7 +540,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                 </span>
               </div>
               <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-semibold">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px] uppercase font-semibold">
                   Assigned Site
                 </span>
                 <span className="font-semibold text-slate-800 dark:text-slate-200">
@@ -551,17 +551,17 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
 
             {/* Attendance & Shift Breakdown */}
             <div className="mt-5 space-y-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                 Attendance & Time Breakdown
               </h4>
               <div className="grid grid-cols-3 gap-2 text-center text-xs">
-                <div className="p-2.5 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800">
-                  <span className="text-slate-400 block text-[10px]">Total Hours</span>
+                <div className="p-2.5 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-800">
+                  <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Total Hours</span>
                   <span className="font-bold font-mono text-slate-900 dark:text-white text-sm">
                     {selectedPayslip.hoursWorked}h
                   </span>
                 </div>
-                <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-lg border border-emerald-100 dark:border-emerald-900/60">
+                <div className="p-2.5 bg-emerald-50 dark:bg-emerald-950/40 rounded-lg border border-emerald-200 dark:border-emerald-900/60">
                   <span className="text-emerald-700 dark:text-emerald-400 block text-[10px]">
                     Full Days (≥7h)
                   </span>
@@ -569,7 +569,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                     {selectedPayslip.fullDays}
                   </span>
                 </div>
-                <div className="p-2.5 bg-amber-50 dark:bg-amber-950/40 rounded-lg border border-amber-100 dark:border-amber-900/60">
+                <div className="p-2.5 bg-amber-50 dark:bg-amber-950/40 rounded-lg border border-amber-200 dark:border-amber-900/60">
                   <span className="text-amber-700 dark:text-amber-400 block text-[10px]">
                     Half Days (4-7h)
                   </span>
@@ -579,13 +579,13 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-2 text-center text-xs pt-1">
-                <div className="p-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-100 dark:border-slate-800">
-                  <span className="text-slate-400 block text-[10px]">Working Days</span>
+                <div className="p-2 bg-slate-50 dark:bg-slate-800/50 rounded-lg border border-slate-200 dark:border-slate-800">
+                  <span className="text-slate-500 dark:text-slate-400 block text-[10px]">Working Days</span>
                   <span className="font-bold font-mono text-slate-900 dark:text-white">
                     {selectedPayslip.standardWorkingDays} days
                   </span>
                 </div>
-                <div className="p-2 bg-rose-50 dark:bg-rose-950/40 rounded-lg border border-rose-100 dark:border-rose-900/60">
+                <div className="p-2 bg-rose-50 dark:bg-rose-950/40 rounded-lg border border-rose-200 dark:border-rose-900/60">
                   <span className="text-rose-700 dark:text-rose-400 block text-[10px]">
                     Auto Leaves Taken
                   </span>
@@ -597,7 +597,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
             </div>
 
             {/* Salary Computation Ledger */}
-            <div className="mt-5 border-t border-slate-100 dark:border-slate-800 pt-4 space-y-2 text-xs">
+            <div className="mt-5 border-t border-slate-200 dark:border-slate-800 pt-4 space-y-2 text-xs">
               <div className="flex justify-between py-1">
                 <span className="text-slate-500 dark:text-slate-400">Monthly Base Pay</span>
                 <span className="font-bold font-mono text-slate-900 dark:text-white">
@@ -622,7 +622,7 @@ export default function PayrollManagerClient({ employees, attendanceRecords }: P
                   -₹{selectedPayslip.leaveDeductions.toLocaleString('en-IN')}
                 </span>
               </div>
-              <div className="flex justify-between py-3 border-t-2 border-dashed border-slate-200 dark:border-slate-700 text-sm">
+              <div className="flex justify-between py-3 border-t-2 border-dashed border-slate-300 dark:border-slate-700 text-sm">
                 <span className="font-bold text-slate-900 dark:text-white">Net Payable Salary</span>
                 <span className="font-extrabold font-mono text-teal-600 dark:text-teal-400 text-base">
                   ₹{selectedPayslip.netSalary.toLocaleString('en-IN')}

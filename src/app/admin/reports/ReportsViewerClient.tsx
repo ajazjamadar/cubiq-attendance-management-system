@@ -133,7 +133,7 @@ export default function ReportsViewerClient({
   return (
     <div className="space-y-6">
       {/* Top Controls: Tabs & Filters */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-xs transition-colors">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-300 dark:border-slate-800 shadow-xs transition-colors">
         {/* Tab Switcher */}
         <div className="flex items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-xl">
           <button
@@ -163,23 +163,23 @@ export default function ReportsViewerClient({
         {/* Filter and Download */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="relative">
-            <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-400" />
+            <Search className="w-4 h-4 absolute left-3 top-2.5 text-slate-400 dark:text-slate-500" />
             <input
               type="text"
               placeholder="Search by name or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-9 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="pl-9 pr-3 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
           </div>
 
           <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-300">
-            <Calendar className="w-4 h-4 text-slate-400" />
+            <Calendar className="w-4 h-4 text-slate-400 dark:text-slate-500" />
             <input
               type="date"
               value={dateFilter}
               onChange={(e) => setDateFilter(e.target.value)}
-              className="px-2.5 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
+              className="px-2.5 py-1.5 text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-100 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
             />
             {dateFilter && (
               <button
@@ -202,11 +202,11 @@ export default function ReportsViewerClient({
       </div>
 
       {/* Records Table */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
         <div className="overflow-x-auto">
           {activeTab === 'EMPLOYEE' ? (
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-100 dark:border-slate-800">
+              <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-200 dark:border-slate-800">
                 <tr>
                   <th className="px-6 py-3.5">Employee Name & ID</th>
                   <th className="px-6 py-3.5">Date</th>
@@ -217,10 +217,10 @@ export default function ReportsViewerClient({
                   <th className="px-6 py-3.5 text-right">Status</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
                 {filteredEmployees.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="px-6 py-12 text-center text-slate-400 text-sm">
+                    <td colSpan={7} className="px-6 py-12 text-center text-slate-400 dark:text-slate-500 text-sm">
                       No employee attendance records found for this filter.
                     </td>
                   </tr>
@@ -232,7 +232,7 @@ export default function ReportsViewerClient({
                       <tr key={rec.attendance_id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
                         <td className="px-6 py-4">
                           <div className="font-bold text-slate-900 dark:text-white">{rec.name}</div>
-                          <span className="text-[11px] font-mono text-slate-400">
+                          <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
                             {rec.employee_id} • {rec.attendance_id}
                           </span>
                         </td>
@@ -243,7 +243,7 @@ export default function ReportsViewerClient({
                             {rec.check_in}
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-xs font-mono text-slate-500 dark:text-slate-400">
+                        <td className="px-6 py-4 whitespace-nowrap text-xs font-mono text-slate-600 dark:text-slate-300">
                           {rec.check_out || '-'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -269,8 +269,8 @@ export default function ReportsViewerClient({
                           <div className="font-medium text-slate-800 dark:text-slate-200">
                             {rec.location_name || 'Assigned Site'}
                           </div>
-                          <div className="flex items-center gap-1 text-[11px] font-mono text-slate-400 mt-0.5">
-                            <Compass className="w-3 h-3 text-slate-400" />
+                          <div className="flex items-center gap-1 text-[11px] font-mono text-slate-400 dark:text-slate-500 mt-0.5">
+                            <Compass className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                             {rec.latitude.toFixed(4)}, {rec.longitude.toFixed(4)}
                           </div>
                         </td>
@@ -287,7 +287,7 @@ export default function ReportsViewerClient({
             </table>
           ) : (
             <table className="w-full text-left text-sm">
-              <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-100 dark:border-slate-800">
+              <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-500 dark:text-slate-400 text-xs font-semibold border-b border-slate-200 dark:border-slate-800">
                 <tr>
                   <th className="px-6 py-3.5">Supervisor Name & ID</th>
                   <th className="px-6 py-3.5">Date</th>
@@ -298,10 +298,10 @@ export default function ReportsViewerClient({
                   <th className="px-6 py-3.5 text-right">Verification</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
                 {filteredSupervisors.length === 0 ? (
                   <tr>
-                    <td colSpan={7} className="px-6 py-12 text-center text-slate-400 text-sm">
+                    <td colSpan={7} className="px-6 py-12 text-center text-slate-400 dark:text-slate-500 text-sm">
                       No supervisor attendance records found for this filter.
                     </td>
                   </tr>
@@ -312,7 +312,7 @@ export default function ReportsViewerClient({
                       <tr key={rec.attendance_id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
                         <td className="px-6 py-4">
                           <div className="font-bold text-slate-900 dark:text-white">{rec.name}</div>
-                          <span className="text-[11px] font-mono text-slate-400">
+                          <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
                             {rec.supervisor_id} • {rec.attendance_id}
                           </span>
                         </td>
@@ -323,7 +323,7 @@ export default function ReportsViewerClient({
                             {rec.check_in}
                           </div>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-xs font-mono text-slate-500 dark:text-slate-400">
+                        <td className="px-6 py-4 whitespace-nowrap text-xs font-mono text-slate-600 dark:text-slate-300">
                           {rec.check_out || '-'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -336,8 +336,8 @@ export default function ReportsViewerClient({
                           <div className="font-medium text-slate-800 dark:text-slate-200">
                             {rec.location_name || 'Assigned Site'}
                           </div>
-                          <div className="flex items-center gap-1 text-[11px] font-mono text-slate-400 mt-0.5">
-                            <Compass className="w-3 h-3 text-slate-400" />
+                          <div className="flex items-center gap-1 text-[11px] font-mono text-slate-400 dark:text-slate-500 mt-0.5">
+                            <Compass className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                             {rec.latitude.toFixed(4)}, {rec.longitude.toFixed(4)}
                           </div>
                         </td>

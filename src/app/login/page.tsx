@@ -67,7 +67,7 @@ export default function LoginPage() {
           <img
             src="/logo.png"
             alt="CUBIQ Logo"
-            className="h-9 w-9 object-contain rounded-xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-0.5 shadow-xs"
+            className="h-9 w-9 object-contain rounded-xl border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 p-0.5 shadow-xs"
           />
           <div className="flex flex-col">
             <span className="font-extrabold text-sm sm:text-base tracking-tight text-slate-900 dark:text-white flex items-center gap-1.5">
@@ -109,8 +109,8 @@ export default function LoginPage() {
 
             {/* Feature Cards Grid */}
             <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 backdrop-blur-xs shadow-2xs">
-                <div className="p-2 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-600 dark:text-teal-400 shrink-0 border border-teal-100 dark:border-teal-900">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-800 backdrop-blur-xs shadow-2xs">
+                <div className="p-2 rounded-xl bg-teal-50 dark:bg-teal-950/80 text-teal-600 dark:text-teal-400 shrink-0 border border-teal-200 dark:border-teal-900">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
@@ -123,8 +123,8 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 backdrop-blur-xs shadow-2xs">
-                <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 shrink-0 border border-blue-100 dark:border-blue-900">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-800 backdrop-blur-xs shadow-2xs">
+                <div className="p-2 rounded-xl bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 shrink-0 border border-blue-200 dark:border-blue-900">
                   <Banknote className="w-4 h-4" />
                 </div>
                 <div>
@@ -137,8 +137,8 @@ export default function LoginPage() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 backdrop-blur-xs shadow-2xs">
-                <div className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 shrink-0 border border-purple-100 dark:border-purple-900">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-800 backdrop-blur-xs shadow-2xs">
+                <div className="p-2 rounded-xl bg-purple-50 dark:bg-purple-950/80 text-purple-600 dark:text-purple-400 shrink-0 border border-purple-200 dark:border-purple-900">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <div>
@@ -167,11 +167,11 @@ export default function LoginPage() {
 
           {/* Right Column: High-End Glassmorphic Login Form */}
           <div className="lg:col-span-6 flex justify-center">
-            <div className="w-full max-w-md bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-200/80 dark:border-slate-800 p-7 sm:p-9 transition-all">
+            <div className="w-full max-w-md bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-3xl shadow-xl shadow-slate-200/50 dark:shadow-black/40 border border-slate-300 dark:border-slate-800 p-7 sm:p-9 transition-all">
               
               {/* Brand Centerpiece */}
               <div className="text-center">
-                <div className="inline-flex p-3 rounded-2xl bg-gradient-to-br from-teal-50 to-slate-100 dark:from-slate-800 dark:to-teal-950/40 border border-slate-200/80 dark:border-slate-700/80 shadow-md">
+                <div className="inline-flex p-3 rounded-2xl bg-gradient-to-br from-teal-50 to-slate-100 dark:from-slate-800 dark:to-teal-950/40 border border-slate-300 dark:border-slate-700/80 shadow-md">
                   <img
                     src="/logo.png"
                     alt="CUBIQ"
@@ -215,7 +215,7 @@ export default function LoginPage() {
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="e.g. admin or supervisor_north"
-                      className="block w-full pl-10 pr-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-transparent transition"
+                      className="block w-full pl-10 pr-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-transparent transition"
                     />
                   </div>
                 </div>
@@ -242,7 +242,7 @@ export default function LoginPage() {
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••••••"
-                      className="block w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-transparent transition"
+                      className="block w-full pl-10 pr-10 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 focus:border-transparent transition"
                     />
                     <button
                       type="button"
@@ -283,7 +283,7 @@ export default function LoginPage() {
               </form>
 
               {/* Security Pill */}
-              <div className="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800 text-center">
+              <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-800 text-center">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-slate-400 dark:text-slate-500">
                   <ShieldCheck className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                   Encrypted Session • GPS Geofenced Verification
@@ -296,7 +296,7 @@ export default function LoginPage() {
       </main>
 
       {/* Modern Developer Credit Footer */}
-      <footer className="w-full py-5 px-4 sm:px-6 relative z-10 border-t border-slate-200/60 dark:border-slate-800/80 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xs">
+      <footer className="w-full py-5 px-4 sm:px-6 relative z-10 border-t border-slate-300 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-xs">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           
           {/* System Tag */}
@@ -309,7 +309,7 @@ export default function LoginPage() {
           </div>
 
           {/* User Requested Developer Signature Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/80 border border-slate-300 dark:border-slate-700 text-xs shadow-2xs">
             <Code2 className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400 shrink-0" />
             <span className="text-slate-700 dark:text-slate-300 font-medium">
               Build and Developed by <strong className="font-bold text-slate-900 dark:text-white">MD Ejazuddin Jamadar</strong> | <span className="text-teal-700 dark:text-teal-400 font-semibold">Software & Platform Engineer</span>.

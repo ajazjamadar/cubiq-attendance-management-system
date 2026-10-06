@@ -135,9 +135,9 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
       )}
 
       {/* Action Toolbar */}
-      <div className="flex items-center justify-between bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs">
-        <div className="text-sm text-slate-600">
-          Showing <span className="font-bold text-slate-900">{locations.length}</span> site
+      <div className="flex items-center justify-between bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-300 dark:border-slate-800 shadow-xs transition-colors">
+        <div className="text-sm text-slate-600 dark:text-slate-300">
+          Showing <span className="font-bold text-slate-900 dark:text-white">{locations.length}</span> site
           locations
         </div>
         <button
@@ -153,10 +153,10 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
       </div>
 
       {/* Locations Table */}
-      <div className="bg-white rounded-2xl border border-slate-200/80 shadow-xs overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-300 dark:border-slate-800 shadow-xs overflow-hidden transition-colors">
         <div className="overflow-x-auto">
           <table className="w-full text-left text-sm">
-            <thead className="bg-slate-50/75 text-slate-500 text-xs font-semibold border-b border-slate-100">
+            <thead className="bg-slate-50/75 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 text-xs font-semibold border-b border-slate-200 dark:border-slate-800">
               <tr>
                 <th className="px-6 py-3.5">Site Name & Address</th>
                 <th className="px-6 py-3.5">GPS Coordinates</th>
@@ -165,31 +165,31 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                 <th className="px-6 py-3.5 text-right">Map View</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 text-slate-700">
+            <tbody className="divide-y divide-slate-200 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
               {locations.length === 0 ? (
                 <tr>
-                  <td colSpan={5} className="px-6 py-10 text-center text-slate-400 text-sm">
+                  <td colSpan={5} className="px-6 py-10 text-center text-slate-400 dark:text-slate-500 text-sm">
                     No site locations found. Click "Add Site Location" to create one.
                   </td>
                 </tr>
               ) : (
                 locations.map((loc) => (
-                  <tr key={loc.location_id} className="hover:bg-slate-50/50 transition">
+                  <tr key={loc.location_id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40 transition">
                     <td className="px-6 py-4">
-                      <div className="font-bold text-slate-900">{loc.location_name}</div>
-                      <div className="text-xs text-slate-500 mt-0.5">{loc.address}</div>
-                      <span className="text-[10px] font-mono text-slate-400 mt-1 inline-block">
+                      <div className="font-bold text-slate-900 dark:text-white">{loc.location_name}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{loc.address}</div>
+                      <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 mt-1 inline-block">
                         ID: {loc.location_id}
                       </span>
                     </td>
-                    <td className="px-6 py-4 font-mono text-xs text-slate-600 whitespace-nowrap">
+                    <td className="px-6 py-4 font-mono text-xs text-slate-600 dark:text-slate-300 whitespace-nowrap">
                       <div className="flex items-center gap-1.5">
-                        <Compass className="w-3.5 h-3.5 text-teal-600" />
+                        <Compass className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
                         {loc.latitude.toFixed(4)}, {loc.longitude.toFixed(4)}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200">
+                      <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-950/80 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
                         {loc.radius} meters
                       </span>
                     </td>
@@ -197,7 +197,7 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                       <select
                         value={loc.supervisor_id || ''}
                         onChange={(e) => handleSupervisorReassign(loc.location_id, e.target.value)}
-                        className="text-xs font-medium bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-slate-800 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                        className="text-xs font-medium bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-2.5 py-1.5 text-slate-900 dark:text-white focus:outline-none focus:ring-1 focus:ring-teal-500"
                       >
                         <option value="">-- Unassigned --</option>
                         {supervisors.map((s) => (
@@ -210,7 +210,7 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                     <td className="px-6 py-4 text-right">
                       <button
                         onClick={() => setSelectedLocationForMap(loc)}
-                        className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-teal-700 hover:text-teal-800 bg-teal-50 hover:bg-teal-100 rounded-lg transition"
+                        className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-800 dark:hover:text-teal-200 bg-teal-50 dark:bg-teal-950/70 hover:bg-teal-100 dark:hover:bg-teal-900 rounded-lg transition border border-teal-200/60 dark:border-teal-800"
                       >
                         <Eye className="w-3.5 h-3.5" />
                         View Geofence
@@ -226,16 +226,16 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
 
       {/* Modal: View Geofence Map */}
       {selectedLocationForMap && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-2xl w-full p-6 shadow-2xl border border-slate-300 dark:border-slate-800 space-y-4 transition-colors">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-teal-600" />
+                <MapPin className="w-5 h-5 text-teal-600 dark:text-teal-400" />
                 <div>
-                  <h3 className="font-bold text-slate-900">
+                  <h3 className="font-bold text-slate-900 dark:text-white">
                     {selectedLocationForMap.location_name}
                   </h3>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     Geofence Radius: {selectedLocationForMap.radius}m • Coordinates:{' '}
                     {selectedLocationForMap.latitude}, {selectedLocationForMap.longitude}
                   </p>
@@ -243,7 +243,7 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
               </div>
               <button
                 onClick={() => setSelectedLocationForMap(null)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg"
+                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -254,14 +254,14 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
               initialLng={selectedLocationForMap.longitude}
               radiusMeters={selectedLocationForMap.radius}
               locationName={selectedLocationForMap.location_name}
-              className="h-80 w-full rounded-xl border border-slate-200"
+              className="h-80 w-full rounded-xl border border-slate-300 dark:border-slate-700"
             />
 
-            <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
+            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-2 border-t border-slate-200 dark:border-slate-800">
               <span>Shaded teal circle represents the permitted check-in radius.</span>
               <button
                 onClick={() => setSelectedLocationForMap(null)}
-                className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg font-medium text-xs transition"
+                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-semibold text-xs transition border border-slate-300 dark:border-slate-700"
               >
                 Close
               </button>
@@ -272,16 +272,16 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
 
       {/* Modal: Add Site Location */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 my-8">
-            <div className="flex items-center justify-between pb-4 border-b border-slate-100">
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-300 dark:border-slate-800 my-8 transition-colors">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-teal-600" />
-                <h3 className="font-bold text-slate-900 text-base">Add New Site Location</h3>
+                <MapPin className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                <h3 className="font-bold text-slate-900 dark:text-white text-base">Add New Site Location</h3>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 p-1 rounded-lg"
+                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-1 rounded-lg"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -289,14 +289,14 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
 
             <form onSubmit={handleCreateSubmit} className="space-y-4 mt-4">
               {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-700 flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
+                <div className="p-3 bg-red-50 dark:bg-red-950/60 border border-red-200 dark:border-red-900 rounded-xl text-xs text-red-700 dark:text-red-300 flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0 text-red-600 dark:text-red-400" />
                   <span>{error}</span>
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                   Location Name *
                 </label>
                 <input
@@ -305,12 +305,12 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                   placeholder="e.g. CUBIQ Site A (Headquarters)"
                   value={locationName}
                   onChange={(e) => setLocationName(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                   Address
                 </label>
                 <input
@@ -318,21 +318,21 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                   placeholder="e.g. MG Road, Bangalore, Karnataka"
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
-                  className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
               {/* Coordinates & GPS auto-detect */}
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                     GPS Coordinates & Geofence
                   </label>
                   <button
                     type="button"
                     onClick={handleUseCurrentLocation}
                     disabled={detectingGps}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 hover:text-teal-700 hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline"
                   >
                     <Crosshair className="w-3.5 h-3.5" />
                     {detectingGps ? 'Detecting GPS...' : 'Use My Current GPS'}
@@ -341,25 +341,25 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <span className="text-[11px] text-slate-500">Latitude</span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400">Latitude</span>
                     <input
                       type="number"
                       step="any"
                       required
                       value={latitude}
                       onChange={(e) => setLatitude(parseFloat(e.target.value))}
-                      className="w-full px-3 py-1.5 text-xs font-mono bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-teal-500"
+                      className="w-full px-3 py-1.5 text-xs font-mono bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
                     />
                   </div>
                   <div>
-                    <span className="text-[11px] text-slate-500">Longitude</span>
+                    <span className="text-[11px] text-slate-500 dark:text-slate-400">Longitude</span>
                     <input
                       type="number"
                       step="any"
                       required
                       value={longitude}
                       onChange={(e) => setLongitude(parseFloat(e.target.value))}
-                      className="w-full px-3 py-1.5 text-xs font-mono bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:outline-none focus:ring-1 focus:ring-teal-500"
+                      className="w-full px-3 py-1.5 text-xs font-mono bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-1 focus:ring-teal-500"
                     />
                   </div>
                 </div>
@@ -375,7 +375,7 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                       setLatitude(parseFloat(lat.toFixed(6)));
                       setLongitude(parseFloat(lng.toFixed(6)));
                     }}
-                    className="h-56 w-full rounded-xl border border-slate-200"
+                    className="h-56 w-full rounded-xl border border-slate-300 dark:border-slate-700"
                   />
                 </div>
               </div>
@@ -383,7 +383,7 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
               {/* Radius and Supervisor */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                     Allowed Radius (meters) *
                   </label>
                   <input
@@ -393,18 +393,18 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                     required
                     value={radius}
                     onChange={(e) => setRadius(parseFloat(e.target.value) || 100)}
-                    className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500 font-mono"
+                    className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500 font-mono"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider">
+                  <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                     Assign Supervisor
                   </label>
                   <select
                     value={supervisorId}
                     onChange={(e) => setSupervisorId(e.target.value)}
-                    className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-900 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    className="mt-1 w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-slate-900 dark:text-white focus:bg-white dark:focus:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
                   >
                     <option value="">-- Assign Later --</option>
                     {supervisors.map((s) => (
@@ -416,11 +416,11 @@ export default function LocationsManagerClient({ initialLocations, supervisors }
                 </div>
               </div>
 
-              <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+              <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-4 py-2 border border-slate-200 hover:bg-slate-50 text-slate-700 rounded-lg text-sm font-semibold transition"
+                  className="px-4 py-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-semibold transition"
                 >
                   Cancel
                 </button>
