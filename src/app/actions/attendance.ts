@@ -13,6 +13,7 @@ import {
 } from '@/lib/db';
 import { validateGeofence } from '@/lib/geo';
 import { AttendanceRecord, SupervisorAttendanceRecord } from '@/types';
+import { calculateHoursWorked } from '@/lib/attendance-utils';
 import { revalidatePath } from 'next/cache';
 
 /**
@@ -258,21 +259,26 @@ export async function generateAttendanceCsv(type: 'employee' | 'supervisor', dat
       'Date',
       'Check In',
       'Check Out',
+      'Hours Worked',
       'Latitude',
       'Longitude',
       'Status',
     ];
-    const rows = records.map((r) => [
-      r.attendance_id,
-      r.employee_id,
-      `"${r.name}"`,
-      r.date,
-      r.check_in,
-      r.check_out,
-      r.latitude,
-      r.longitude,
-      r.status,
-    ]);
+    const rows = records.map((r) => {
+      const hoursInfo = calculateHoursWorked(r.check_in, r.check_out);
+      return [
+        r.attendance_id,
+        r.employee_id,
+        `"${r.name}"`,
+        r.date,
+        r.check_in,
+        r.check_out,
+        `"${hoursInfo.formatted}"`,
+        r.latitude,
+        r.longitude,
+        r.status,
+      ];
+    });
     return [headers.join(','), ...rows.map((row) => row.join(','))].join('\n');
   } else {
     const records = await getSupervisorAttendanceRecords(dateFilter);
@@ -283,19 +289,24 @@ export async function generateAttendanceCsv(type: 'employee' | 'supervisor', dat
       'Date',
       'Check In',
       'Check Out',
+      'Hours Worked',
       'Latitude',
       'Longitude',
     ];
-    const rows = records.map((r) => [
-      r.attendance_id,
-      r.supervisor_id,
-      `"${r.name}"`,
-      r.date,
-      r.check_in,
-      r.check_out,
-      r.latitude,
-      r.longitude,
-    ]);
+    const rows = records.map((r) => {
+      const hoursInfo = calculateHoursWorked(r.check_in, r.check_out);
+      return [
+        r.attendance_id,
+        r.supervisor_id,
+        `"${r.name}"`,
+        r.date,
+        r.check_in,
+        r.check_out,
+        `"${hoursInfo.formatted}"`,
+        r.latitude,
+        r.longitude,
+      ];
+    });
     return [headers.join(','), ...rows.map((row) => row.join(','))].join('\n');
   }
 }
